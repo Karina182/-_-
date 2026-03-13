@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Локальные стили для видео и специфических отступов */
+        /* Основные настройки отступов */
         .video-container {
-            margin: 40px auto;
+            margin: 30px auto 0px; /* Нижний отступ убран в 0 */
             width: 100%;
             max-width: 1100px;
             border-radius: 16px;
@@ -23,33 +23,34 @@
             width: 100%;
             height: auto;
             display: block;
-            outline: none;
         }
 
         .section-title {
             text-align: center;
-            margin-top: 50px;
-            margin-bottom: 30px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* МАГИЯ: если заголовок идет СРАЗУ после видео, убираем ему верхний отступ */
+        .video-container + .section-title {
+            margin-top: 15px;
         }
 
         .info-block {
-            margin-bottom: 40px;
+            margin-bottom: 20px; /* Уменьшено с 40 */
         }
 
-        /* Адаптивность для мобильных устройств */
+        .section {
+            padding: 10px 0; /* Уплотнение секций */
+        }
+
+        /* Адаптивность */
         @media (max-width: 768px) {
             .video-container {
-                margin: 20px auto;
-                border-radius: 8px;
+                margin: 20px auto 0;
             }
-            /* На мобильных перестраиваем шаги в колонку */
-            .steps {
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-            .arrow {
-                transform: rotate(90deg);
-                margin: 10px 0;
+            .video-container + .section-title {
+                margin-top: 10px;
             }
         }
     </style>
@@ -70,28 +71,34 @@
         <div class="hero-content">
             <span class="badge">Код специальности: 21.02.20</span>
             <h1>Искусство измерять мир</h1>
-            <p>Станьте востребованным экспертом в области высокоточных измерений и цифрового картографирования.</p>
+            <p>Станьте востребованным экспертом в области высокоточных измерений.</p>
             <a href="#about" class="btn-primary">Узнать больше</a>
         </div>
     </section>
 
     <main class="container" id="about">
         <section class="section">
+            <h2 class="section-title">Почему я горжусь своей будущей профессией?</h2>
+            <div class="video-container">
+                <video controls preload="metadata">
+                    <source src="V3.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+
             <h2 class="section-title">О специальности</h2>
-            
             <div class="grid-text">
                 <div class="text-block">
-                    <p><b>Прикладная геодезия</b> — это не просто работа с приборами. Это фундамент любого масштабного проекта. Геодезисты первыми приходят на заросшее поле, где должен появиться завод, и последними уходят с готового объекта, подтверждая его точность.</p>
+                    <p><b>Прикладная геодезия</b> — это фундамент любого проекта. Геодезисты первыми приходят на объект и последними уходят, подтверждая его точность.</p>
                 </div>
                 <div class="text-block">
-                    <p>Сегодня профессия переживает цифровую революцию: мы используем лазерное 3D-сканирование, беспилотники и спутниковые системы навигации, превращая облака точек в живые карты.</p>
+                    <p>Сегодня это цифровая революция: лазерное сканирование и беспилотники превращают точки в живые карты.</p>
                 </div>
             </div>
 
             <div class="video-container">
                 <video controls preload="metadata">
                     <source src="V2.mp4" type="video/mp4">
-                    Ваш браузер не поддерживает видео.
                 </video>
             </div>
         </section>
@@ -99,54 +106,19 @@
         <section class="section">
             <h2 class="section-title">Чем занимается геодезист?</h2>
             <div class="info-block">
-                <p>Специалист по прикладной геодезии — это «глаза» любого строительного или промышленного проекта. Он переносит бумажные чертежи на реальную местность и следит за тем, чтобы каждый элемент конструкции находился точно на своем месте.</p>
+                <p>Специалист по прикладной геодезии — это «глаза» любого проекта.</p>
                 
-                <div class="career-grid" style="margin-top: 30px;">
-                    <div class="career-item">
-                        <span class="number" style="color: var(--accent); font-weight: 600;">01</span>
-                        <p><b>Съемка местности:</b> создание подробных цифровых карт и планов территории перед началом любых работ.</p>
-                    </div>
-                    <div class="career-item">
-                        <span class="number" style="color: var(--accent); font-weight: 600;">02</span>
-                        <p><b>Разбивочные работы:</b> точное определение координат фундамента, стен и опор на земле.</p>
-                    </div>
-                    <div class="career-item">
-                        <span class="number" style="color: var(--accent); font-weight: 600;">03</span>
-                        <p><b>Мониторинг:</b> проверка объектов на наличие деформаций, наклонов или просадок.</p>
-                    </div>
+                <div class="career-grid" style="margin-top: 20px;">
+                    <div class="career-item"><b>01. Съемка:</b> создание цифровых карт.</div>
+                    <div class="career-item"><b>02. Разбивка:</b> перенос чертежа в натуру.</div>
+                    <div class="career-item"><b>03. Мониторинг:</b> контроль деформаций.</div>
                 </div>
 
-                <h2 class="section-title" style="margin-top: 60px;">Разрушитель мифов</h2>
-                
+                <h2 class="section-title">Разрушитель мифов</h2>
                 <div class="video-container">
                     <video controls preload="metadata">
                         <source src="V1.mp4" type="video/mp4">
-                        Ваш браузер не поддерживает видео.
                     </video>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" style="padding-top: 0;">
-            <div class="career-grid">
-                <div class="career-item">
-                    <h3>Где работать?</h3>
-                    <ul class="styled-list">
-                        <li><b>Строительство:</b> жилые комплексы и стадионы.</li>
-                        <li><b>Дорожные службы:</b> трассы и развязки.</li>
-                        <li><b>Горное дело:</b> карьеры и шахты.</li>
-                        <li><b>Госсектор:</b> Росреестр и кадастр.</li>
-                    </ul>
-                </div>
-
-                <div class="career-item highlight">
-                    <h3>Ключевые навыки</h3>
-                    <ul class="styled-list">
-                        <li>Владение тахеометром и GNSS.</li>
-                        <li>Работа в AutoCAD, Civil 3D, Credo.</li>
-                        <li>Математический склад ума.</li>
-                        <li>Внимательность и ответственность.</li>
-                    </ul>
                 </div>
             </div>
         </section>
@@ -157,18 +129,15 @@
                 <div class="career-item" style="text-align: center;">
                     <h3>Зарплаты</h3>
                     <div class="salary-badge">Помощник: от 55 000 ₽</div>
-                    <div class="salary-badge">Техник: до 120 000 ₽</div>
                     <div class="salary-badge">Инженер (вахта): 150 000+ ₽</div>
                 </div>
                 
                 <div class="career-item">
                     <h3>Карьерный рост</h3>
-                    <div class="growth-path" style="margin-top: 0;">
-                        <div class="steps" style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
-                            <div class="step">1. Полевой замерщик</div>
-                            <div class="step">2. Старший геодезист</div>
-                            <div class="step">3. Начальник службы</div>
-                        </div>
+                    <div class="steps" style="display: flex; flex-direction: column; gap: 5px;">
+                        <div class="step">1. Полевой замерщик</div>
+                        <div class="step">2. Старший геодезист</div>
+                        <div class="step">3. Начальник службы</div>
                     </div>
                 </div>
             </div>
