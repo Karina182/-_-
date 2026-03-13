@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карьера в геодезии | Твоё будущее</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Дополнительные стили для детальной карьеры */
+        .career-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .career-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .career-card h4 {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        .salary-info {
+            background: #f1f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        .salary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        .salary-row b { color: #2c3e50; }
+        
+        .steps-vertical {
+            margin-top: 40px;
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px dashed #cbd5e0;
+        }
+        .step-v {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .step-v::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #007bff;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 2px #007bff;
+        }
+        
+        @media (max-width: 768px) {
+            .career-detail-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">ГЕО<span>ДЕЗИЯ</span></div>
+            <ul>
+                <li><a href="index.html">О профессии</a></li>
+                <li><a href="skills.html">Навыки</a></li>
+                <li><a href="career.html" class="active">Карьера</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">Где вы будете востребованы</h2>
+            
+            <div class="career-detail-grid">
+                <div class="career-card">
+                    <h4>🏗️ Гражданское строительство</h4>
+                    <p>Сопровождение строительства жилых комплексов, торговых центров и спортивных объектов. Геодезист здесь — ключевой контролер качества.</p>
+                    <ul class="styled-list">
+                        <li>Разбивка осей зданий</li>
+                        <li>Контроль вертикальности колонн</li>
+                        <li>Подсчет объемов бетона и земляных масс</li>
+                    </ul>
+                </div>
+
+                <div class="career-card">
+                    <h4>🏭 Промышленность и Энергетика</h4>
+                    <p>Работа на сверхсложных объектах: заводы, АЭС, ГЭС, нефтеперерабатывающие терминалы.</p>
+                    <ul class="styled-list">
+                        <li>Выверка промышленного оборудования</li>
+                        <li>Мониторинг деформаций плотин и цехов</li>
+                        <li>Трассировка магистральных трубопроводов</li>
+                    </ul>
+                </div>
+
+                <div class="career-card">
+                    <h4>🛤️ Дороги и Мосты</h4>
+                    <p>Самый динамичный сектор. Строительство федеральных трасс, развязок и железнодорожных путей.</p>
+                    <ul class="styled-list">
+                        <li>Построение продольных профилей трасс</li>
+                        <li>Установка опор мостов с точностью до 1 мм</li>
+                        <li>Сканирование дорожного полотна</li>
+                    </ul>
+                </div>
+
+                <div class="career-card">
+                    <h4>🏡 Кадастр и Землеустройство</h4>
+                    <p>Работа, связанная с частным сектором, государственным учетом земель и юридическим оформлением.</p>
+                    <ul class="styled-list">
+                        <li>Установление границ участков</li>
+                        <li>Технические планы объектов недвижимости</li>
+                        <li>Судебная землеустроительная экспертиза</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="section-title">Финансовые перспективы</h2>
+            <div class="career-item highlight" style="max-width: 800px; margin: 0 auto 50px;">
+                <p style="margin-bottom: 20px;">Зарплата в геодезии сильно зависит от готовности к командировкам и умения работать со сложным ПО.</p>
+                <div class="salary-info">
+                    <div class="salary-row"><span>В городе (офис/объекты)</span> <b>60 000 – 110 000 ₽</b></div>
+                    <div class="salary-row"><span>Вахтовый метод (Север/Мурманск/Ямал)</span> <b>140 000 – 220 000 ₽</b></div>
+                    <div class="salary-row"><span>Кадастровый инженер (сдельно)</span> <b>от 80 000 ₽ до безлимита</b></div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Лестница успеха</h2>
+            <div class="steps-vertical">
+                <div class="step-v">
+                    <h3>01. Техник / Помощник (1–2 года)</h3>
+                    <p>Набор опыта в «поле». Вы учитесь виртуозно владеть приборами, делать быстрые замеры и вести абрис. Понимаете специфику стройки изнутри.</p>
+                </div>
+                <div class="step-v">
+                    <h3>02. Инженер-геодезист (2–5 лет)</h3>
+                    <p>Вы самостоятельно ведете объект. Ответственны за всю исполнительную документацию, подписываете акты у заказчика, ведете расчеты в AutoCAD/Civil 3D.</p>
+                </div>
+                <div class="step-v">
+                    <h3>03. Ведущий геодезист / Старший объекта</h3>
+                    <p>Руководство группой геодезистов на крупном проекте. Координация работы нескольких субподрядчиков, контроль графика работ.</p>
+                </div>
+                <div class="step-v">
+                    <h3>04. Начальник геодезической службы / Собственный бизнес</h3>
+                    <p>Административная работа или открытие своей фирмы по изысканиям. Средний чек на топографическую съемку или межевание позволяет стабильно развивать свое дело.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Специальность 21.02.20 | Прикладная геодезия</p>
+        </div>
+    </footer>
+</body>
+</html>
