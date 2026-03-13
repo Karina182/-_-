@@ -1,10 +1,14 @@
-/* Общие стили */
+/* --- 1. ПЕРЕМЕННЫЕ И ОБЩИЕ СТИЛИ --- */
 :root {
-    --primary: #1b4332; /* Темно-хвойный */
-    --accent: #40916c;  /* Оливковый */
-    --light: #f8faf9;   /* Фон */
-    --text: #2d3436;
+    --primary: #1b4332;      /* Темно-хвойный */
+    --accent: #40916c;       /* Оливковый */
+    --accent-hover: #52b788; /* Светло-зеленый */
+    --light-bg: #f8faf9;     /* Фон страницы */
     --white: #ffffff;
+    --text-main: #2d3436;
+    --text-muted: #6b7a74;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition: 0.3s ease;
 }
 
 * {
@@ -15,25 +19,27 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--light);
-    color: var(--text);
+    background-color: var(--light-bg);
+    color: var(--text-main);
     line-height: 1.6;
+    overflow-x: hidden; /* Защита от горизонтального скролла */
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Навигация */
+/* --- 2. НАВИГАЦИЯ --- */
 header {
     background-color: var(--white);
-    padding: 20px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #eee;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 nav {
@@ -46,6 +52,8 @@ nav {
     font-weight: 600;
     font-size: 1.4rem;
     color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .logo span { color: var(--accent); }
@@ -53,412 +61,182 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
+    gap: 25px;
 }
-
-nav ul li { margin-left: 30px; }
 
 nav a {
     text-decoration: none;
-    color: var(--text);
+    color: var(--text-main);
     font-size: 0.95rem;
-    font-weight: 400;
-    transition: 0.3s;
+    font-weight: 500;
+    transition: var(--transition);
 }
 
 nav a:hover, nav a.active {
     color: var(--accent);
 }
 
-/* Hero блок */
+/* --- 3. HERO БЛОК --- */
 .hero {
-    background: linear-gradient(135deg, rgba(27, 67, 50, 0.9), rgba(64, 145, 108, 0.8)), 
+    background: linear-gradient(135deg, rgba(27, 67, 50, 0.85), rgba(64, 145, 108, 0.75)), 
                 url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200');
     background-size: cover;
     background-position: center;
-    padding: 100px 20px;
+    padding: 120px 20px;
     color: var(--white);
     text-align: center;
 }
 
-.hero-content { max-width: 700px; margin: 0 auto; }
-
-.badge {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin: 20px 0;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .btn-primary {
     display: inline-block;
     background: var(--white);
     color: var(--primary);
-    padding: 12px 30px;
-    border-radius: 5px;
+    padding: 14px 35px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    margin-top: 30px;
-    transition: 0.3s;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .btn-primary:hover {
     background: var(--accent);
     color: var(--white);
+    transform: translateY(-2px);
 }
 
-/* Секции */
+/* --- 4. СЕКЦИИ И СЕТКИ --- */
 .section { padding: 80px 0; }
 
 .section-title {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 50px;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
     color: var(--primary);
 }
 
-.grid-text {
+/* Универсальная сетка */
+.grid-text, .career-grid, .skills-grid, .career-detail-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-/* Карточки навыков */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.skill-card {
+/* Карточки */
+.skill-card, .career-item, .career-card {
     background: var(--white);
-    padding: 40px;
-    border-radius: 12px;
-    border: 1px solid #eee;
-    transition: transform 0.3s;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid #f0f0f0;
 }
 
-.skill-card:hover {
+.skill-card:hover, .career-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-.skill-icon {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+/* Зарплатные плашки */
+.salary-badge {
+    background: #f0f7f4;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* --- 5. ВИДЕО --- */
+.video-container {
+    margin: 40px auto;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    background: #000;
+}
+
+video {
+    width: 100%;
+    display: block;
+}
+
+/* --- 6. КАРЬЕРНАЯ ЛЕСТНИЦА --- */
+.steps-vertical {
+    margin-top: 40px;
+    padding-left: 40px;
+    border-left: 2px dashed var(--accent);
+}
+
+.step-v {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.step-v::before {
+    content: '';
+    position: absolute;
+    left: -48px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 4px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* --- 7. АДАПТИВНОСТЬ (МОБИЛЬНЫЕ) --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero { padding: 60px 20px; }
+    
+    .hero h1 { font-size: 2rem; }
+
+    .section { padding: 40px 0; }
+
+    .section-title { font-size: 1.7rem; }
+
+    .grid-text, .career-grid, .skills-grid, .career-detail-grid {
+        grid-template-columns: 1fr !important; /* Форсируем одну колонку */
+    }
+
+    .steps-vertical {
+        padding-left: 25px;
+        margin-left: 10px;
+    }
+
+    .step-v::before { left: -33px; }
+
+    .btn-primary { width: 100%; text-align: center; }
 }
 
 /* Футер */
 footer {
+    padding: 40px 0;
     background: #f1f3f2;
-    padding: 40px 0;
     text-align: center;
-    font-size: 0.9rem;
-    color: #7f8c8d;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    .grid-text { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 2rem; }
-    nav ul { display: none; } /* Для простоты на мобилках спрячем меню */
-}
-
-/* --- 1. Основные настройки и переменные --- */
-/* Используем современные CSS-переменные для легкой смены цветов */
-:root {
-    --primary-color: #1b4332;   /* Темно-хвойный, для заголовков и лого */
-    --accent-color: #40916c;    /* Более яркий зеленый, для акцентов и ссылок */
-    --accent-hover: #52b788;    /* Цвет при наведении */
-    --bg-color: #f8faf9;        /* Очень светлый серый фон всей страницы */
-    --card-bg: #ffffff;         /* Белый фон для блоков */
-    --text-main: #333d39;       /* Основной цвет текста (не чисто черный) */
-    --text-muted: #6b7a74;      /* Приглушенный текст для футера */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05); /* Легкая тень для блоков */
-    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08); /* Тень при наведении */
-    --transition: 0.3s ease;    /* Плавность анимаций */
-}
-
-/* Сброс стандартных отступов браузера */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Inter', sans-serif; /* Подключаем шрифт Inter */
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    line-height: 1.7; /* Увеличенное межстрочное расстояние для читаемости */
-    -webkit-font-smoothing: antialiased; /* Улучшение рендеринга шрифтов */
-}
-
-/* Ограничитель ширины контента */
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* --- 2. Шапка сайта (Header) --- */
-header {
-    background-color: var(--card-bg);
-    padding: 20px 0;
-    border-bottom: 1px solid #edf2f0; /* Тонкая линия снизу */
-    position: sticky; /* Шапка прилипает к верху при скролле */
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-}
-
-nav {
-    display: flex;
-    justify-content: space-between; /* Лого слева, меню справа */
-    align-items: center;
-}
-
-.logo {
-    font-weight: 600;
-    font-size: 1.3rem;
-    color: var(--primary-color);
-    letter-spacing: 1px; /* Чуть увеличим расстояние между буквами */
-    text-transform: uppercase;
-}
-
-.logo span {
-    color: var(--accent-color); /* Выделяем часть лого другим цветом */
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 30px; /* Отступ между пунктами меню */
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-size: 0.95rem;
-    font-weight: 400;
-    transition: var(--transition);
-    padding: 5px 0;
-    position: relative;
-}
-
-/* Эффект линии при наведении */
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent-color);
-    transition: var(--transition);
-}
-
-nav a:hover {
-    color: var(--accent-color);
-}
-
-nav a:hover::after,
-nav a.active::after {
-    width: 100%;
-}
-
-/* Скорректируем стили для активной ссылки (она уже есть в HTML) */
-nav a.active {
-    color: var(--accent-color);
-    font-weight: 600;
-}
-
-/* --- 3. Основной контент (.main) --- */
-main {
-    padding-top: 40px; /* Отступ от шапки */
-}
-
-.section {
-    padding: 60px 0; /* Внутренние отступы секции */
-}
-
-.section-title {
-    font-size: 2.2rem;
-    color: var(--primary-color);
-    margin-bottom: 50px;
-    text-align: center;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-/* Декоративная линия под заголовком */
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--accent-color);
-    border-radius: 2px;
-}
-
-/* Сетка для блоков карьеры */
-.career-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивность: блоки перестроятся в колонку на мобильных */
-    gap: 30px;
-    margin-bottom: 70px;
-}
-
-/* Стили карточек */
-.career-item {
-    background-color: var(--card-bg);
-    padding: 40px;
-    border-radius: 16px;
-    border: 1px solid #f0f0f0;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
-
-.career-item:hover {
-    box-shadow: var(--shadow-md); /* Увеличиваем тень при наведении */
-    transform: translateY(-3px); /* Чуть приподнимаем карточку */
-}
-
-.career-item h3 {
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    margin-bottom: 25px;
-}
-
-/* Оформление списка */
-.styled-list {
-    list-style: none;
-}
-
-.styled-list li {
-    margin-bottom: 15px;
-    padding-left: 30px;
-    position: relative;
-    font-size: 0.95rem;
-}
-
-/* Кастомные маркеры списка в виде галочек */
-.styled-list li::before {
-    content: '✓'; /* Символ галочки */
-    position: absolute;
-    left: 0;
-    color: var(--accent-color);
-    font-weight: bold;
-}
-
-/* Выделенный блок (Уровень дохода) */
-.career-item.highlight {
-    background-color: #f0f7f4; /* Очень легкий зеленый тон фона */
-    border: 1px solid #d1e7dd;
-}
-
-.salary-desc {
-    margin-bottom: 25px;
-    font-size: 0.95rem;
-    color: #555;
-}
-
-/* Стили "плашек" с зарплатой */
-.salary-badge {
-    background-color: var(--primary-color);
-    color: var(--white);
-    background-color: var(--white); /* Белый фон */
-    color: var(--primary-color); /* Темный текст */
-    border: 2px solid var(--primary-color); /* Темная рамка */
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-top: 15px;
-    display: flex; /* Для выравнивания, если добавим иконки */
-    justify-content: center;
-}
-
-/* --- 4. Блок "Путь развития" --- */
-.growth-path {
-    margin-top: 80px;
-    text-align: center;
-}
-
-.growth-path h3 {
-    font-size: 1.6rem;
-    color: var(--primary-color);
-    margin-bottom: 40px;
-}
-
-/* Сетка этапов */
-.steps {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap; /* Чтобы этапы переносились на мобильных */
-}
-
-/* Стили отдельного этапа */
-.step {
-    padding: 18px 28px;
-    background-color: var(--card-bg);
-    border: 1px solid #ddd;
-    border-radius: 50px; /* Скруглённые края (таблетка) */
-    font-size: 0.95rem;
-    font-weight: 400;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
-
-.step:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-}
-
-/* Стили стрелочки */
-.arrow {
-    color: var(--accent-color);
-    font-size: 1.2rem;
-    font-weight: bold;
-    user-select: none; /* Чтобы нельзя было выделить текст стрелки */
-}
-
-/* --- 5. Подвал (Footer) --- */
-footer {
-    padding: 40px 0;
-    text-align: center;
-    border-top: 1px solid #eee;
-    margin-top: auto; /* Чтобы футер всегда был внизу, если контента мало */
-}
-
-footer p {
-    font-size: 0.85rem;
     color: var(--text-muted);
-}
-
-/* --- 6. Адаптивность для мобильных телефонов --- */
-@media (max-width: 768px) {
-    .section-title { font-size: 1.8rem; }
-    
-    /* Убираем стрелки на мобильных и выстраиваем этапы в колонку */
-    .steps { flex-direction: column; gap: 10px; }
-    .arrow { display: none; } /* Прячем горизонтальные стрелочки */
-    
-    /* Увеличиваем отступы в карточках */
-    .career-item { padding: 30px; }
-    
-    /* Уменьшаем отступ для секции */
-    .section { padding: 40px 0; }
+    font-size: 0.9rem;
+    border-top: 1px solid #e0e0e0;
 }

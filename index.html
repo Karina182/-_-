@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Стили для развернутых видео-блоков */
+        /* Локальные стили для видео и специфических отступов */
         .video-container {
             margin: 40px auto;
             width: 100%;
-            max-width: 1100px; /* Делает видео широкоформатным и заметным */
+            max-width: 1100px;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             background-color: #000;
-            line-height: 0; /* Убирает лишние зазоры снизу */
+            line-height: 0;
         }
 
         video {
@@ -41,6 +41,15 @@
             .video-container {
                 margin: 20px auto;
                 border-radius: 8px;
+            }
+            /* На мобильных перестраиваем шаги в колонку */
+            .steps {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
             }
         }
     </style>
@@ -94,15 +103,15 @@
                 
                 <div class="career-grid" style="margin-top: 30px;">
                     <div class="career-item">
-                        <span class="number">Обязанность 1</span>
+                        <span class="number" style="color: var(--accent); font-weight: 600;">01</span>
                         <p><b>Съемка местности:</b> создание подробных цифровых карт и планов территории перед началом любых работ.</p>
                     </div>
                     <div class="career-item">
-                        <span class="number">Обязанность 2</span>
+                        <span class="number" style="color: var(--accent); font-weight: 600;">02</span>
                         <p><b>Разбивочные работы:</b> точное определение координат фундамента, стен и опор на земле.</p>
                     </div>
                     <div class="career-item">
-                        <span class="number">Обязанность 3</span>
+                        <span class="number" style="color: var(--accent); font-weight: 600;">03</span>
                         <p><b>Мониторинг:</b> проверка объектов на наличие деформаций, наклонов или просадок.</p>
                     </div>
                 </div>
@@ -123,22 +132,20 @@
                 <div class="career-item">
                     <h3>Где работать?</h3>
                     <ul class="styled-list">
-                        <li><b>Строительство:</b> жилые комплексы, заводы, стадионы.</li>
-                        <li><b>Дорожные службы:</b> проектирование трасс и развязок.</li>
-                        <li><b>Горное дело:</b> работа в карьерах и на шахтах.</li>
-                        <li><b>Госсектор:</b> Росреестр, кадастровые бюро.</li>
-                        <li><b>Энергетика:</b> прокладка газопроводов и ЛЭП.</li>
+                        <li><b>Строительство:</b> жилые комплексы и стадионы.</li>
+                        <li><b>Дорожные службы:</b> трассы и развязки.</li>
+                        <li><b>Горное дело:</b> карьеры и шахты.</li>
+                        <li><b>Госсектор:</b> Росреестр и кадастр.</li>
                     </ul>
                 </div>
 
                 <div class="career-item highlight">
                     <h3>Ключевые навыки</h3>
                     <ul class="styled-list">
-                        <li>Владение тахеометром и спутниковыми (GNSS) приемниками.</li>
-                        <li>Умение читать чертежи и проектную документацию.</li>
-                        <li>Работа в ПО: AutoCAD, Civil 3D, Credo.</li>
-                        <li>Математический склад ума и внимательность.</li>
-                        <li>Готовность к работе в различных погодных условиях.</li>
+                        <li>Владение тахеометром и GNSS.</li>
+                        <li>Работа в AutoCAD, Civil 3D, Credo.</li>
+                        <li>Математический склад ума.</li>
+                        <li>Внимательность и ответственность.</li>
                     </ul>
                 </div>
             </div>
@@ -148,21 +155,19 @@
             <h2 class="section-title">Доход и развитие</h2>
             <div class="career-grid">
                 <div class="career-item" style="text-align: center;">
-                    <h3>Уровень зарплат</h3>
+                    <h3>Зарплаты</h3>
                     <div class="salary-badge">Помощник: от 55 000 ₽</div>
-                    <div class="salary-badge">Техник-геодезист: 80 000 — 120 000 ₽</div>
-                    <div class="salary-badge">Инженер-геодезист (вахта): 150 000+ ₽</div>
+                    <div class="salary-badge">Техник: до 120 000 ₽</div>
+                    <div class="salary-badge">Инженер (вахта): 150 000+ ₽</div>
                 </div>
                 
                 <div class="career-item">
                     <h3>Карьерный рост</h3>
                     <div class="growth-path" style="margin-top: 0;">
-                        <div class="steps" style="flex-direction: column; align-items: flex-start;">
+                        <div class="steps" style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
                             <div class="step">1. Полевой замерщик</div>
-                            <div class="arrow" style="transform: rotate(90deg); margin-left: 20px;">↓</div>
-                            <div class="step">2. Старший геодезист объекта</div>
-                            <div class="arrow" style="transform: rotate(90deg); margin-left: 20px;">↓</div>
-                            <div class="step">3. Начальник геодезической службы</div>
+                            <div class="step">2. Старший геодезист</div>
+                            <div class="step">3. Начальник службы</div>
                         </div>
                     </div>
                 </div>
